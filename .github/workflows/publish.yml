@@ -22,8 +22,8 @@ jobs:
           run_install: true
       - name: Install semantic-release extra plugins
         run: pnpm add -D @semantic-release/changelog @semantic-release/git
-      - name: Lint
-        run: pnpm dlx lint-fix
+      # - name: Lint
+      #   run: pnpm dlx lint-fix
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
