@@ -21,8 +21,15 @@ export async function getCookie(name: string): Promise<string | null> {
  * @param {string} value - The value of the cookie.
  * @return {boolean} - Returns true if the cookie was set successfully, otherwise false.
  */
-export async function setCookie(name: string, value: string): Promise<boolean> {
+export async function setCookie(
+  name: string,
+  value: string | null
+): Promise<boolean> {
   const cookie = cookies();
+  if (!value) {
+    cookie.delete(name);
+    return true;
+  }
   cookie.set(name, value);
   return true;
 }
