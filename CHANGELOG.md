@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/cybinon/erdnes/compare/v1.0.0...v1.1.0) (2023-10-29)
+
+
+### Features
+
+* file detector now can detect png, jpg, webp, pdf ([6447538](https://github.com/cybinon/erdnes/commit/64475387bc60a10f0a0ce551318e146ed9a6f469))
+* setCookie now can get null, if null cookie will remove ([4c85b2e](https://github.com/cybinon/erdnes/commit/4c85b2e771a8b0334b8dce927e30feee74d1cb15))
+
 # 1.0.0 (2023-10-29)
 
 
