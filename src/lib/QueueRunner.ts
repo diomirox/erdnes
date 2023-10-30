@@ -1,6 +1,8 @@
 import { Readable } from "stream";
 
-type QueueEvent<R> = { type: "progress"; data: R } | { type: "end"; data: R[] };
+type QueueEvent<R> =
+  | { type: "progress"; data: R; haveError?: boolean }
+  | { type: "end"; data: R[]; haveError?: boolean };
 
 export class QueueRunner<T, R> {
   private readonly data: T[];
@@ -9,8 +11,6 @@ export class QueueRunner<T, R> {
   private readonly result: R[] = [];
   private readonly pending: Promise<any>[] = [];
   private isRunning = false;
-  private resolve?: (value: any) => void;
-  private reject?: (error: any) => void;
   private readable = new Readable();
 
   constructor(data: T[], func: (props: T) => any, concurrency = 1) {
@@ -53,9 +53,8 @@ export class QueueRunner<T, R> {
     try {
       await Promise.all(promises);
       this.emit({ type: "end", data: this.result });
-      this.resolve?.(this.readable);
     } catch (error) {
-      this.reject?.(error);
+      this.emit({ type: "end", data: this.result, haveError: true });
     } finally {
       this.isRunning = false;
     }
