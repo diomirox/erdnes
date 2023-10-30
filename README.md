@@ -1,12 +1,12 @@
 # Erdnes Development Tools
 
-Erdnes provides a set of development tools to streamline various tasks in your projects. These tools are designed to enhance your development experience. Below are the general tools offered by Erdnes.
+Erdnes offers a comprehensive suite of development tools to streamline various tasks in your projects, designed to enhance your development experience. Below, we outline the general tools provided by Erdnes.
 
 ## Binary Check File Detector
 
-The `fileDetector` is a utility that allows you to determine the file extension of an input file. You can use it in your project as follows:
+The `fileDetector` is a versatile utility that allows you to determine the file extension of an input file. Incorporate it into your project as follows:
 
-### Importing the `fileDetector` function
+### Importing the `fileDetector` Function
 
 ```typescript
 import { fileDetector } from "erdnes";
@@ -20,7 +20,7 @@ const result = await fileDetector(file);
 
 ### Advanced Usage with `useFileDetector`
 
-For more control and flexibility, you can use the `useFileDetector` hook. This is particularly useful when working with input elements in your application.
+For added control and flexibility, consider using the `useFileDetector` hook. This is particularly valuable when working with input elements in your application.
 
 ```typescript
 import { useFileDetector } from "erdnes";
@@ -29,7 +29,7 @@ const detector = useFileDetector();
 
 const handleInput = async (e: ChangeEvent<HTMLInputElement>) => {
   const extName = await detector(e.target.files[0]); // Returns pdf, png, webp, jpg, or unknown
-  
+
   if (extName === "unknown") {
     // Handle unknown file types
     // ... your code
@@ -39,9 +39,9 @@ const handleInput = async (e: ChangeEvent<HTMLInputElement>) => {
 
 ## QueueRunner - Execute Tasks Sequentially
 
-The `QueueRunner` class allows you to execute tasks one by one in a specified order. This can be particularly useful when you need to ensure that a series of tasks are completed sequentially.
+The `QueueRunner` class empowers you to execute tasks one by one in a specified order. This can be particularly useful when you need to ensure that a series of tasks are completed sequentially.
 
-### Importing the `QueueRunner` class
+### Importing the `QueueRunner` Class
 
 ```typescript
 import { QueueRunner } from "erdnes";
@@ -62,4 +62,22 @@ listener.on("end", (result: ResultType[]) => {
 });
 ```
 
-Erdnes Development Tools provide a convenient way to handle file detection and execute tasks sequentially in your projects. These tools can help you enhance your development process and improve the user experience of your applications.
+## QueueRunner - Custom Concurrency
+
+The **QueueRunner** class allows you to customize the concurrency of task execution, empowering you to optimize performance for your project.
+
+### Example Usage
+
+To execute tasks with a custom concurrency level, simply provide the desired concurrency as an argument when creating a `QueueRunner` instance. For example, to execute four tasks concurrently:
+
+```javascript
+const queue = new QueueRunner(queue, yourTaskFunction, 4); // Execute 4 tasks concurrently
+```
+
+This feature offers flexibility and efficiency, allowing you to adapt task execution to your project's specific needs. Fine-tune concurrency for better resource utilization and performance optimization.
+
+This concise section explains how to control concurrency using the `QueueRunner` class with an example for reference.
+
+---
+
+Erdnes Development Tools provide a convenient way to handle file detection and execute tasks sequentially in your projects. These tools can help you enhance your development process and improve the user experience of your applications. Explore these tools to boost productivity and streamline your project's development workflow.
