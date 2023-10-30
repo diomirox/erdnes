@@ -80,4 +80,11 @@ This concise section explains how to control concurrency using the `QueueRunner`
 
 ---
 
+
 Erdnes Development Tools provide a convenient way to handle file detection and execute tasks sequentially in your projects. These tools can help you enhance your development process and improve the user experience of your applications. Explore these tools to boost productivity and streamline your project's development workflow.
+
+
+## Support
+
+<a href="https://www.buymeacoffee.com/cybinon" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
