@@ -1,3 +1,15 @@
+## [1.1.2](https://github.com/cybinon/erdnes/compare/v1.1.1...v1.1.2) (2023-10-30)
+
+
+### Bug Fixes
+
+* **QueueRunner:** removed resolve, reject ([eee0a34](https://github.com/cybinon/erdnes/commit/eee0a34716a70dcdf27f7eaefb898b14183fd23f))
+
+
+### Reverts
+
+* removed nextjs server action ([767c4ea](https://github.com/cybinon/erdnes/commit/767c4ea0b647cb75c97e0868685d9048084e4d9c))
+
 ## [1.1.1](https://github.com/cybinon/erdnes/compare/v1.1.0...v1.1.1) (2023-10-30)
 
 
