@@ -2,12 +2,16 @@
   "name": "erdnes",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/lib/index.mjs",
   "scripts": {
-    "prepare": "husky install",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rm -rf dist/*",
+    "build:esm": "rollup --config ./configs/rollup.config.mjs",
+    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    "build:types": "tsc -p ./configs/tsconfig.types.json",
+    "build": "pnpm run build:esm && pnpm run build:cjs && pnpm run build:types",
+    "prepare": "husky install"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -18,7 +22,31 @@
   "devDependencies": {
     "@commitlint/cli": "^18.2.0",
     "@commitlint/config-conventional": "^18.1.0",
+    "@rollup/plugin-typescript": "^11.1.5",
     "@types/node": "^20.8.9",
-    "husky": "^8.0.3"
-  }
+    "husky": "^8.0.3",
+    "rollup": "^4.1.5",
+    "typescript": "^5.2.2"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "/dist",
+    "/index.d.ts"
+  ],
+  "keywords": [
+    "development",
+    "next",
+    "typescript",
+    "file",
+    "type",
+    "inference"
+  ],
+  "types": "./index.d.ts"
 }
