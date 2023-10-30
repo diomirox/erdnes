@@ -17,4 +17,8 @@ export const extentionMap = [
     notation: [0x52, 0x49, 0x46, 0x46],
     extention: "webp",
   },
+  {
+    notation: [0x47, 0x49, 0x46, 0x38, 0x39, 0x61],
+    extention: "gif",
+  },
 ];
