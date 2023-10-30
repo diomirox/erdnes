@@ -6,14 +6,14 @@
 
   
   ```ts
-  import { fileDetector } from "erdnes/lib"
+  import { fileDetector } from "erdnes"
 
   const result = await fileDetector(file);
   
   ```
 
   ```ts
-  import { useFileDetector } from "erdnes/hooks"
+  import { useFileDetector } from "erdnes"
 
   const detector = useFileDetector():
   
@@ -31,7 +31,7 @@
 
   ```ts
 
-  import { QueueRunner } from "erdnes/lib";
+  import { QueueRunner } from "erdnes";
   
   const queue = new QueueRunner([1,2,3,4,5], async (data) => {
     return doSomething(data); // collection your result
@@ -50,6 +50,6 @@
 - Cookie tools - You can use these actions anywhere you want
 
 ```ts
-import { getCookie, setCookie } from "erdnes/sa"
+import { getCookie, setCookie } from "erdnes"
 ```
   
