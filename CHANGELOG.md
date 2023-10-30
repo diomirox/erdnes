@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/cybinon/erdnes/compare/v1.1.2...v1.1.3) (2023-10-30)
+
+
+### Bug Fixes
+
+* **QueueRunner:** concurrency customize ([e6e5916](https://github.com/cybinon/erdnes/commit/e6e5916743f999b3bbba6bbf3473a4a76286273a))
+
 ## [1.1.2](https://github.com/cybinon/erdnes/compare/v1.1.1...v1.1.2) (2023-10-30)
 
 
