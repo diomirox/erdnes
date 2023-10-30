@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/cybinon/erdnes/compare/v1.1.0...v1.1.1) (2023-10-30)
+
+
+### Bug Fixes
+
+* bundle issue fix ([2060770](https://github.com/cybinon/erdnes/commit/2060770297c12b2e033ad97fa8e45ed8808964bd))
+
 # [1.1.0](https://github.com/cybinon/erdnes/compare/v1.0.0...v1.1.0) (2023-10-29)
 
 
