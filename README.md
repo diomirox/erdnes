@@ -12,10 +12,13 @@ The `fileDetector` is a versatile utility that allows you to determine the file 
 import { fileDetector } from "erdnes";
 ```
 
-### Example Usage
+### Example Usage in server
 
 ```typescript
-const result = await fileDetector(file);
+
+const filpath = "example.png"
+const result = await fileDetector(filepath); // Returns pdf, png, webp, jpg, gif or unknown
+
 ```
 
 ### Advanced Usage with `useFileDetector`
@@ -28,7 +31,7 @@ import { useFileDetector } from "erdnes";
 const detector = useFileDetector();
 
 const handleInput = async (e: ChangeEvent<HTMLInputElement>) => {
-  const extName = await detector(e.target.files[0]); // Returns pdf, png, webp, jpg, or unknown
+  const extName = await detector(e.target.files[0]); // Returns pdf, png, webp, jpg, gif or unknown
 
   if (extName === "unknown") {
     // Handle unknown file types
