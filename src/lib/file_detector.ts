@@ -1,7 +1,7 @@
 import { extentionMap } from "./extention_map";
 import { check, readBuffer } from "./general";
 
-export const fileDetector = async (file: File) => {
+export const fileDetector = async (file: File | string) => {
   const buffers = (await readBuffer(file, 0, 8)) as Iterable<number>;
 
   const maping = [...extentionMap];
