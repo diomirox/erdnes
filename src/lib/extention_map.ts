@@ -1,6 +1,9 @@
 import { stringToBytes } from "./general";
 
-export const extentionMap = [
+export const extentionMap: {
+  extention: ExtType;
+  notation: number[];
+}[] = [
   {
     extention: "pdf",
     notation: stringToBytes("%PDF"),
@@ -22,3 +25,5 @@ export const extentionMap = [
     extention: "gif",
   },
 ];
+
+export type ExtType = "jpg" | "png" | "webp" | "gif" | "pdf" | "unknown";

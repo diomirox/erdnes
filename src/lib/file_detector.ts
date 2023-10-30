@@ -1,14 +1,14 @@
-import { extentionMap } from "./extention_map";
+import { ExtType, extentionMap } from "./extention_map";
 import { check, readBuffer } from "./general";
 
-export const fileDetector = async (file: File | string) => {
+export const fileDetector = async (file: File | string): Promise<ExtType> => {
   const buffers = (await readBuffer(file, 0, 8)) as Iterable<number>;
 
   const maping = [...extentionMap];
   function checker(
     buff: Iterable<number>,
     maping: typeof extentionMap
-  ): string {
+  ): ExtType {
     const ext = maping.shift();
     if (!ext) return "unknown";
 
