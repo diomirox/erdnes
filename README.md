@@ -44,12 +44,3 @@
   });
 
   ```
-
-## Nextjs Tools
-
-- Cookie tools - You can use these actions anywhere you want
-
-```ts
-import { getCookie, setCookie } from "erdnes"
-```
-  
