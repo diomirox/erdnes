@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/cybinon/erdnes/compare/v1.1.3...v1.2.0) (2023-10-30)
+
+
+### Bug Fixes
+
+* **FileDetector:** server side file detection ([e73aabb](https://github.com/cybinon/erdnes/commit/e73aabb707518d2b02dcc3a9c9d2093c9e051b05))
+
+
+### Features
+
+* **FileDetector:** now typed possible returns ([b6f4942](https://github.com/cybinon/erdnes/commit/b6f4942ada928a4629ba5278ba0c3716414dc5d2))
+* now recognize gif ([5870374](https://github.com/cybinon/erdnes/commit/587037428dceeaa43d2785e2962b550d9acd3633))
+
 ## [1.1.3](https://github.com/cybinon/erdnes/compare/v1.1.2...v1.1.3) (2023-10-30)
 
 
