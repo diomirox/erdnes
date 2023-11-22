@@ -89,5 +89,5 @@ Erdnes Development Tools provide a convenient way to handle file detection and e
 
 ## Support
 
-<a href="https://www.buymeacoffee.com/cybinon" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+<a href="https://www.buymeacoffee.com/diomirox" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
