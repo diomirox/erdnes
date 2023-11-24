@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/cybinon/erdnes/compare/v1.2.0...v1.3.0) (2023-11-24)
+
+
+### Features
+
+* added mp3 and mp4 notation ([6c3c233](https://github.com/cybinon/erdnes/commit/6c3c233843e2de40659f6fe5b1a7b69b6b796c18))
+
 # [1.2.0](https://github.com/cybinon/erdnes/compare/v1.1.3...v1.2.0) (2023-10-30)
 
 
