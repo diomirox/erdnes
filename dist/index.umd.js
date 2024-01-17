@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('stream'), require('child_process')) :
-    typeof define === 'function' && define.amd ? define(['exports', 'stream', 'child_process'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.Zod = {}, global.stream, global.child_process));
-})(this, (function (exports, stream, child_process) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('stream'), require('child_process'), require('path')) :
+    typeof define === 'function' && define.amd ? define(['exports', 'stream', 'child_process', 'path'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.Zod = {}, global.stream, global.child_process, global.path));
+})(this, (function (exports, stream, child_process, path) { 'use strict';
 
     class QueueRunner {
         constructor(data, func, concurrency = 1) {
@@ -157,7 +157,7 @@
     };
 
     async function scanIt(filepath) {
-        const exe = './ext/BarcodeReaderCLI';
+        const exe = path.join(__dirname, '../../ext/BarcodeReaderCLI');
         const args = [filepath];
         const proc = child_process.spawn(exe, args);
         const barcodes = await new Promise((resolve, reject) => {

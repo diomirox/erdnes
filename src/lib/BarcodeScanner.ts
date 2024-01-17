@@ -1,4 +1,5 @@
 import { spawn } from 'child_process';
+import path from 'path';
 
 export type Barcodes = {
   length: number;
@@ -7,7 +8,7 @@ export type Barcodes = {
 };
 
 export async function scanIt(filepath: string) {
-  const exe = './ext/BarcodeReaderCLI';
+  const exe = path.join(__dirname, '../../ext/BarcodeReaderCLI');
   const args: string[] = [filepath];
 
   const proc = spawn(exe, args);

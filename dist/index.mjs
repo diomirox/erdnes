@@ -1,5 +1,6 @@
 import { Readable } from 'stream';
 import { spawn } from 'child_process';
+import path from 'path';
 
 class QueueRunner {
     constructor(data, func, concurrency = 1) {
@@ -154,7 +155,7 @@ const fileDetector = async (file) => {
 };
 
 async function scanIt(filepath) {
-    const exe = './ext/BarcodeReaderCLI';
+    const exe = path.join(__dirname, '../../ext/BarcodeReaderCLI');
     const args = [filepath];
     const proc = spawn(exe, args);
     const barcodes = await new Promise((resolve, reject) => {
