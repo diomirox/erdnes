@@ -1,3 +1,11 @@
+## [1.4.1](https://github.com/diomirox/erdnes/compare/v1.4.0...v1.4.1) (2024-01-17)
+
+
+### Bug Fixes
+
+* barcode scanner ([d4dfb02](https://github.com/diomirox/erdnes/commit/d4dfb025f196ca1595c0815d505239d55bb8feee))
+* dist must be ignored ([fcefcb5](https://github.com/diomirox/erdnes/commit/fcefcb5c2c1f57b29e560239303f1dc0c7c8fa30))
+
 # [1.4.0](https://github.com/diomirox/erdnes/compare/v1.3.0...v1.4.0) (2024-01-17)
 
 
