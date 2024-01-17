@@ -17,3 +17,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./QueueRunner"), exports);
 __exportStar(require("./general"), exports);
 __exportStar(require("./file_detector"), exports);
+__exportStar(require("./BarcodeScanner"), exports);

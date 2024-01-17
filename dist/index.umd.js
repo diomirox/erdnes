@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('stream')) :
-    typeof define === 'function' && define.amd ? define(['exports', 'stream'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.Zod = {}, global.stream));
-})(this, (function (exports, stream) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('stream'), require('child_process')) :
+    typeof define === 'function' && define.amd ? define(['exports', 'stream', 'child_process'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.Zod = {}, global.stream, global.child_process));
+})(this, (function (exports, stream, child_process) { 'use strict';
 
     class QueueRunner {
         constructor(data, func, concurrency = 1) {
@@ -127,6 +127,18 @@
             notation: [0x47, 0x49, 0x46, 0x38, 0x39, 0x61],
             extention: "gif",
         },
+        {
+            notation: [0x49, 0x44, 0x33],
+            extention: "mp3"
+        },
+        {
+            notation: [0x66, 0x74, 0x79, 0x70, 0x69, 0x73, 0x6F, 0x6D],
+            extention: "mp4"
+        },
+        {
+            notation: [0x66, 0x74, 0x79, 0x70, 0x4D, 0x53, 0x4E, 0x56],
+            extention: "mp4"
+        }
     ];
 
     const fileDetector = async (file) => {
@@ -144,6 +156,27 @@
         return checker(buffers, maping);
     };
 
+    async function scanIt(filepath) {
+        const exe = './ext/BarcodeReaderCLI';
+        const args = [filepath];
+        const proc = child_process.spawn(exe, args);
+        const barcodes = await new Promise((resolve, reject) => {
+            proc.stdout.on('data', (data) => {
+                resolve(JSON.parse(data.toString()).sessions[0].barcodes);
+            });
+            proc.stdout.on('error', (data) => {
+                reject(JSON.parse(data.toString()).sessions[0].barcodes);
+            });
+            proc.stderr.on('data', (data) => {
+                reject(data.toString());
+            });
+            proc.stderr.on('error', (data) => {
+                reject(data.toString());
+            });
+        });
+        return barcodes;
+    }
+
     /**
      * Generates the function comment for the useFileDetector function.
      *
@@ -157,6 +190,7 @@
     exports.check = check;
     exports.fileDetector = fileDetector;
     exports.readBuffer = readBuffer;
+    exports.scanIt = scanIt;
     exports.stringToBytes = stringToBytes;
     exports.useFileDetector = useFileDetector;
 

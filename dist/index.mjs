@@ -1,4 +1,5 @@
 import { Readable } from 'stream';
+import { spawn } from 'child_process';
 
 class QueueRunner {
     constructor(data, func, concurrency = 1) {
@@ -123,6 +124,18 @@ const extentionMap = [
         notation: [0x47, 0x49, 0x46, 0x38, 0x39, 0x61],
         extention: "gif",
     },
+    {
+        notation: [0x49, 0x44, 0x33],
+        extention: "mp3"
+    },
+    {
+        notation: [0x66, 0x74, 0x79, 0x70, 0x69, 0x73, 0x6F, 0x6D],
+        extention: "mp4"
+    },
+    {
+        notation: [0x66, 0x74, 0x79, 0x70, 0x4D, 0x53, 0x4E, 0x56],
+        extention: "mp4"
+    }
 ];
 
 const fileDetector = async (file) => {
@@ -140,6 +153,27 @@ const fileDetector = async (file) => {
     return checker(buffers, maping);
 };
 
+async function scanIt(filepath) {
+    const exe = './ext/BarcodeReaderCLI';
+    const args = [filepath];
+    const proc = spawn(exe, args);
+    const barcodes = await new Promise((resolve, reject) => {
+        proc.stdout.on('data', (data) => {
+            resolve(JSON.parse(data.toString()).sessions[0].barcodes);
+        });
+        proc.stdout.on('error', (data) => {
+            reject(JSON.parse(data.toString()).sessions[0].barcodes);
+        });
+        proc.stderr.on('data', (data) => {
+            reject(data.toString());
+        });
+        proc.stderr.on('error', (data) => {
+            reject(data.toString());
+        });
+    });
+    return barcodes;
+}
+
 /**
  * Generates the function comment for the useFileDetector function.
  *
@@ -149,4 +183,4 @@ function useFileDetector() {
     return (file) => fileDetector(file);
 }
 
-export { QueueRunner, check, fileDetector, readBuffer, stringToBytes, useFileDetector };
+export { QueueRunner, check, fileDetector, readBuffer, scanIt, stringToBytes, useFileDetector };

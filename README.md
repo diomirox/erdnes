@@ -81,6 +81,23 @@ This feature offers flexibility and efficiency, allowing you to adapt task execu
 
 This concise section explains how to control concurrency using the `QueueRunner` class with an example for reference.
 
+## Barcode Scanner
+
+Erdnes now includes a powerful barcode scanner to facilitate easy integration of barcode scanning into your projects.
+
+### Example usage
+
+```ts
+
+import { scanIt } from "erdnes";
+
+const filepath = "example-barcode.png";
+
+scanIt(filepath).then(barcodeResult => {
+  console.log(barcodeResult);
+});
+
+```
 ---
 
 
