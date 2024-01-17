@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/diomirox/erdnes/compare/v1.3.0...v1.4.0) (2024-01-17)
+
+
+### Features
+
+* added barcode scanner ([5dff89f](https://github.com/diomirox/erdnes/commit/5dff89fa5f7171c2675b3b6cd45a117b2dee16a7))
+* added scanner ([96c666e](https://github.com/diomirox/erdnes/commit/96c666e9e6069b3a61df56c94629ec819b8eab45))
+
 # [1.3.0](https://github.com/cybinon/erdnes/compare/v1.2.0...v1.3.0) (2023-11-24)
 
 
