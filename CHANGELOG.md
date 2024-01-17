@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/diomirox/erdnes/compare/v1.4.1...v1.5.0) (2024-01-17)
+
+
+### Features
+
+* added git repository url ([30ae78f](https://github.com/diomirox/erdnes/commit/30ae78fd842f8ce49983748df22e4ee66f97aa6e))
+
 ## [1.4.1](https://github.com/diomirox/erdnes/compare/v1.4.0...v1.4.1) (2024-01-17)
 
 
