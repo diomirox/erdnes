@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/diomirox/erdnes/compare/v1.5.0...v1.5.1) (2024-01-17)
+
+
+### Bug Fixes
+
+* release bundle scanner ([12c85f0](https://github.com/diomirox/erdnes/commit/12c85f0382377e54099177bc53d9ca4fd754e22f))
+
 # [1.5.0](https://github.com/diomirox/erdnes/compare/v1.4.1...v1.5.0) (2024-01-17)
 
 
