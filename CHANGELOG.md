@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/diomirox/erdnes/compare/v1.5.1...v1.5.2) (2024-01-17)
+
+
+### Bug Fixes
+
+* external file missing ([d4d60f5](https://github.com/diomirox/erdnes/commit/d4d60f58134489914f9bfbad8d4fe9242789d15b))
+
 ## [1.5.1](https://github.com/diomirox/erdnes/compare/v1.5.0...v1.5.1) (2024-01-17)
 
 
