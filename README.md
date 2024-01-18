@@ -17,7 +17,15 @@ import { fileDetector } from "erdnes";
 ```typescript
 
 const filpath = "example.png"
-const result = await fileDetector(filepath); // Returns pdf, png, webp, jpg, gif or unknown
+const result = await fileDetector(filepath);
+
+// example result
+/*
+ {
+    ext: "jpg",
+    type: "image"
+ }
+*/
 
 ```
 
