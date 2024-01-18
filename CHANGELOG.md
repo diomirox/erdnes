@@ -1,3 +1,12 @@
+## [1.5.3](https://github.com/diomirox/erdnes/compare/v1.5.2...v1.5.3) (2024-01-18)
+
+
+### Bug Fixes
+
+* export error fix ([32941c6](https://github.com/diomirox/erdnes/commit/32941c60979f072d50ce334f124d1928821301f5))
+* file detector type and bug fix ([62f6894](https://github.com/diomirox/erdnes/commit/62f68942ae1215e87fcb9b52a78466f633347ffe))
+* fileDetector return format changed ([ff2ba92](https://github.com/diomirox/erdnes/commit/ff2ba92aceedde432fbfb50b416247eafe662501))
+
 ## [1.5.2](https://github.com/diomirox/erdnes/compare/v1.5.1...v1.5.2) (2024-01-17)
 
 

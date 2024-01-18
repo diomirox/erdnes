@@ -1,4 +1,5 @@
 import { Readable } from 'stream';
+import fs from 'fs';
 import { spawn } from 'child_process';
 import path from 'path';
 
@@ -78,69 +79,52 @@ function check(headers) {
 function stringToBytes(string) {
     return [...string].map((character) => character.charCodeAt(0));
 }
-function readBuffer(file, start = 0, end = 2) {
-    return new Promise((resolve, reject) => {
-        try {
-            let fs = require("fs");
-            fs.readFile(file, (err, data) => {
-                if (err) {
-                    reject(err);
-                }
-                else {
-                    resolve(data);
-                }
-            });
-        }
-        catch (e) {
-            if (typeof file === "string")
-                file = new File([file], "filename", { type: "text/plain" });
-            const reader = new FileReader();
-            reader.onload = () => {
-                resolve(reader.result);
-            };
-            reader.onerror = reject;
-            reader.readAsArrayBuffer(file.slice(start, end));
-        }
-    });
-}
 
 const extentionMap = [
     {
-        extention: "pdf",
         notation: stringToBytes("%PDF"),
+        extention: "pdf",
+        mediaType: "document"
     },
     {
         notation: [0xff, 0xd8, 0xff],
         extention: "jpg",
+        mediaType: "image"
     },
     {
         notation: [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a],
         extention: "png",
+        mediaType: "image"
     },
     {
         notation: [0x52, 0x49, 0x46, 0x46],
         extention: "webp",
+        mediaType: "image"
     },
     {
         notation: [0x47, 0x49, 0x46, 0x38, 0x39, 0x61],
         extention: "gif",
+        mediaType: "image"
     },
     {
         notation: [0x49, 0x44, 0x33],
-        extention: "mp3"
+        extention: "mp3",
+        mediaType: "audio"
     },
     {
         notation: [0x66, 0x74, 0x79, 0x70, 0x69, 0x73, 0x6F, 0x6D],
-        extention: "mp4"
+        extention: "mp4",
+        mediaType: "video"
     },
     {
         notation: [0x66, 0x74, 0x79, 0x70, 0x4D, 0x53, 0x4E, 0x56],
-        extention: "mp4"
+        extention: "mp4",
+        mediaType: "video"
     }
 ];
 
 const fileDetector = async (file) => {
-    const buffers = (await readBuffer(file, 0, 8));
+    const buffers = fs.readFileSync(file);
     const maping = [...extentionMap];
     function checker(buff, maping) {
         const ext = maping.shift();
@@ -148,7 +132,10 @@ const fileDetector = async (file) => {
             return "unknown";
         const isMatch = check(ext.notation)(new Uint8Array(buff));
         if (isMatch)
-            return ext.extention;
+            return {
+                ext: ext.extention,
+                type: ext.mediaType
+            };
         return checker(buff, maping);
     }
     return checker(buffers, maping);
@@ -175,13 +162,4 @@ async function scanIt(filepath) {
     return barcodes;
 }
 
-/**
- * Generates the function comment for the useFileDetector function.
- *
- * @return {function} The checkResult function that detects the file type based on the provided buffers.
- */
-function useFileDetector() {
-    return (file) => fileDetector(file);
-}
-
-export { QueueRunner, check, fileDetector, readBuffer, scanIt, stringToBytes, useFileDetector };
+export { QueueRunner, check, fileDetector, scanIt, stringToBytes };

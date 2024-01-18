@@ -14,4 +14,3 @@ export declare function check(headers: number[]): (buffers: Iterable<number>, op
  * @return {number[]} An array of character codes.
  */
 export declare function stringToBytes(string: string): number[];
-export declare function readBuffer(file: File | string, start?: number, end?: number): Promise<unknown>;
