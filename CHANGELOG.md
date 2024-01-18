@@ -1,3 +1,10 @@
+## [1.5.5](https://github.com/diomirox/erdnes/compare/v1.5.4...v1.5.5) (2024-01-18)
+
+
+### Bug Fixes
+
+* buffer read fix ([d5e1737](https://github.com/diomirox/erdnes/commit/d5e1737f9f2602e2c99817b2348d3939c1afe68a))
+
 ## [1.5.4](https://github.com/diomirox/erdnes/compare/v1.5.3...v1.5.4) (2024-01-18)
 
 
