@@ -1,3 +1,10 @@
+## [1.5.4](https://github.com/diomirox/erdnes/compare/v1.5.3...v1.5.4) (2024-01-18)
+
+
+### Bug Fixes
+
+* ResultType fix ([b44d85c](https://github.com/diomirox/erdnes/commit/b44d85c41b5d4414725102943ce94b3aeda7c200))
+
 ## [1.5.3](https://github.com/diomirox/erdnes/compare/v1.5.2...v1.5.3) (2024-01-18)
 
 
