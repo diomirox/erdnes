@@ -1,10 +1,8 @@
 import { ExtType, MediaType, extentionMap } from "./extention_map";
 import { check } from "./general";
-import fs from "fs"
 
 export type ResultType = { ext: ExtType, type: MediaType }
-export const fileDetector = async (file: Buffer): Promise<ResultType> => {
-  const buffers = fs.readFileSync(file);
+export const fileDetector = async (buffers: Buffer): Promise<ResultType> => {
 
   const maping = [...extentionMap];
   function checker(
