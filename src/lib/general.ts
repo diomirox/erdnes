@@ -23,28 +23,3 @@ export function check(
 export function stringToBytes(string: string): number[] {
   return [...string].map((character) => character.charCodeAt(0));
 }
-
-export function readBuffer(file: File | string, start = 0, end = 2) {
-  return new Promise((resolve, reject) => {
-    try {
-      let fs = require("fs");
-      fs.readFile(file, (err: any, data: any) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(data);
-        }
-      });
-    } catch (e) {
-      if (typeof file === "string")
-        file = new File([file], "filename", { type: "text/plain" });
-
-      const reader = new FileReader();
-      reader.onload = () => {
-        resolve(reader.result);
-      };
-      reader.onerror = reject;
-      reader.readAsArrayBuffer(file.slice(start, end));
-    }
-  });
-}

@@ -1,8 +1,9 @@
 import { ExtType, extentionMap } from "./extention_map";
-import { check, readBuffer } from "./general";
+import { check } from "./general";
+import fs from "fs"
 
-export const fileDetector = async (file: File | string): Promise<ExtType> => {
-  const buffers = (await readBuffer(file, 0, 8)) as Iterable<number>;
+export const fileDetector = async (file: Buffer): Promise<ExtType> => {
+  const buffers = fs.readFileSync(file);
 
   const maping = [...extentionMap];
   function checker(
