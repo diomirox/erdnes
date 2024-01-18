@@ -21,25 +21,6 @@ const result = await fileDetector(filepath); // Returns pdf, png, webp, jpg, gif
 
 ```
 
-### Advanced Usage with `useFileDetector`
-
-For added control and flexibility, consider using the `useFileDetector` hook. This is particularly valuable when working with input elements in your application.
-
-```typescript
-import { useFileDetector } from "erdnes";
-
-const detector = useFileDetector();
-
-const handleInput = async (e: ChangeEvent<HTMLInputElement>) => {
-  const extName = await detector(e.target.files[0]); // Returns pdf, png, webp, jpg, gif or unknown
-
-  if (extName === "unknown") {
-    // Handle unknown file types
-    // ... your code
-  }
-};
-```
-
 ## QueueRunner - Execute Tasks Sequentially
 
 The `QueueRunner` class empowers you to execute tasks one by one in a specified order. This can be particularly useful when you need to ensure that a series of tasks are completed sequentially.
